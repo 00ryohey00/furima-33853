@@ -4,9 +4,12 @@
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
+| nickname | string | null: false |
+| email    | string | null: false, unique: true |
+| encrypted_password | string | null: false |
 | name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| name_kana | string | null: false |
+| birthday | date | null: false |
 
 ### Association
 
@@ -16,14 +19,20 @@
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| image   | text | null: false |
-| text   | string | null: false |
-| user    | references | null: false, foreign_key: true |
+| title  | string | null: false |
+| explain | string | null: false |
+| category | string | null: false |
+| status   | string | null: false |
+| financial | string | null: false |
+| area   | string | null: false |
+| days   | integer | null: false |
+| price   | integer | null: false |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :buyers
+- has_one :buyer
 
 
 ## buyers テーブル
@@ -35,4 +44,4 @@
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
