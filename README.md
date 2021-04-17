@@ -16,20 +16,21 @@
 ### Association
 
 - has_many :items
+- has_many :buyers
 
 ## items テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | title  | string | null: false |
-| explain | string | null: false |
+| explain | text | null: false |
 | category_id | integer | null: false |
 | status_id   | integer | null: false |
 | financial_id | integer | null: false |
-| area_id   | integer | null: false |
-| days   | integer | null: false |
+| prefecture_id   | integer | null: false |
+| day_id | integer | null: false |
 | price   | integer | null: false |
-| user   | references | null: false, foreign_key: true |
+| user_id | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -41,24 +42,26 @@
 
 | Column  | Type       | Options    |
 | ------- | ---------- | ---------- |
-| user |  references | null: false, foreign_key: true |
-| item |  references | null: false, foreign_key: true |
+| user_id |  references | null: false, foreign_key: true |
+| item_id |  references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
 - has_one :address
+- belongs_to :user
 
-## address テーブル
+## addresses テーブル
 
 | Column  | Type       | Options    |
 | ------- | ---------- | ---------- |
-| post_number | intger | null: false |
+| post_number | string | null: false |
 | prefecture_id | integer | null: false |
 | municipality | string | null: false |
-| address | intger | null: false |
+| address | string | null: false |
 | building | string |           |
-| phone_number | intger | null: false |
+| phone_number | string | null: false |
+| buyer_id | references | null: false, foreign_key: true |
 
 ### Association
 
