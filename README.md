@@ -7,8 +7,10 @@
 | nickname | string | null: false |
 | email    | string | null: false, unique: true |
 | encrypted_password | string | null: false |
-| name     | string | null: false |
-| name_kana | string | null: false |
+| lastname     | string | null: false |
+| firstname     | string | null: false |
+| lastname_kana | string | null: false |
+| firstname_kana | string | null: false |
 | birthday | date | null: false |
 
 ### Association
@@ -21,10 +23,10 @@
 | ------ | ------ | ----------- |
 | title  | string | null: false |
 | explain | string | null: false |
-| category | string | null: false |
-| status   | string | null: false |
-| financial | string | null: false |
-| area   | string | null: false |
+| category_id | integer | null: false |
+| status_id   | integer | null: false |
+| financial_id | integer | null: false |
+| area_id   | integer | null: false |
 | days   | integer | null: false |
 | price   | integer | null: false |
 | user   | references | null: false, foreign_key: true |
@@ -39,9 +41,25 @@
 
 | Column  | Type       | Options    |
 | ------- | ---------- | ---------- |
-| name | string     | null: false   |
-| address | string     | null: false   |
+| user |  references | null: false, foreign_key: true |
+| item |  references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
+- has_one :address
+
+## address テーブル
+
+| Column  | Type       | Options    |
+| ------- | ---------- | ---------- |
+| post_number | intger | null: false |
+| prefecture_id | integer | null: false |
+| municipality | string | null: false |
+| address | intger | null: false |
+| building | string |           |
+| phone_number | intger | null: false |
+
+### Association
+
+- belongs_to :buyer
