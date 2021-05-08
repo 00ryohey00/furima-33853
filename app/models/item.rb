@@ -24,5 +24,4 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :status
 
-  default_scope -> { order(created_at: :desc) }
 end
