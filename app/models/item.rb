@@ -18,5 +18,10 @@ class Item < ApplicationRecord
   validates :category_id, :day_id, :financial_id, :prefecture_id, :status_id, numericality: { other_than: 1 }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :day, :financial, :prefecture, :status
+  belongs_to :category
+  belongs_to :day
+  belongs_to :financial
+  belongs_to :prefecture
+  belongs_to :status
+
 end

@@ -12,11 +12,11 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it 'priceが¥300~¥9,999,999の間であれば登録できる' do
-        @item.price = 3333333
+        @item.price = 3_333_333
         expect(@item).to be_valid
       end
       it 'priceが半角数字であれば登録できる' do
-        @item.price = 333333
+        @item.price = 333_333
         expect(@item).to be_valid
       end
     end
@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
       it 'category_idに1を選択すると登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Category must be other than 1"
+        expect(@item.errors.full_messages).to include 'Category must be other than 1'
       end
       it 'statusが空では登録できない' do
         @item.status_id = ''
@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
       it 'status_idに1を選択すると登録できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Status must be other than 1"
+        expect(@item.errors.full_messages).to include 'Status must be other than 1'
       end
       it 'financialが空では登録できない' do
         @item.financial_id = ''
@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
       it 'financial_idに1を選択すると登録できない' do
         @item.financial_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Financial must be other than 1"
+        expect(@item.errors.full_messages).to include 'Financial must be other than 1'
       end
       it 'prefectureが空では登録できない' do
         @item.prefecture_id = ''
@@ -90,7 +90,7 @@ RSpec.describe Item, type: :model do
       it 'prefecture_idに1を選択すると登録できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
+        expect(@item.errors.full_messages).to include 'Prefecture must be other than 1'
       end
       it 'dayが空では登録できない' do
         @item.day_id = ''
@@ -100,7 +100,7 @@ RSpec.describe Item, type: :model do
       it 'day_idに1を選択すると登録できない' do
         @item.day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include "Day must be other than 1"
+        expect(@item.errors.full_messages).to include 'Day must be other than 1'
       end
       it 'priceが空では登録できない' do
         @item.price = ''
