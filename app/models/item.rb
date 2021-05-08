@@ -23,5 +23,4 @@ class Item < ApplicationRecord
   belongs_to :financial
   belongs_to :prefecture
   belongs_to :status
-
 end
