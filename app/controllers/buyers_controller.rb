@@ -40,6 +40,6 @@ class BuyersController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path if @item.user_id == current_user.id || !@buyer_address.nil?
+    redirect_to root_path if @item.user_id == current_user.id || @item.buyer.present?
   end
 end
