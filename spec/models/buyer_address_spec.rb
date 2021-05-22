@@ -60,8 +60,13 @@ RSpec.describe BuyerAddress, type: :model do
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include('Phone number is invalid')
       end
+      it 'phone_numberが半角数字のみでない場合は保存できないこと' do
+        @buyer_address.phone_number = '33２０００33'
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include('Phone number is invalid')
+      end
       it 'phone_numberが12文字以上では保存できないこと' do
-        @buyer_address.phone_number = 999_999_999_999
+        @buyer_address.phone_number = '999_999_999_999'
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
