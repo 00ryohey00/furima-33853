@@ -23,7 +23,7 @@ RSpec.describe BuyerAddress, type: :model do
       it 'postal_codeが空だと保存できないこと' do
         @buyer_address.postal_code = ''
         @buyer_address.valid?
-        expect(@buyer_address.errors.full_messages).to include ("Postal code can't be blank")
+        expect(@buyer_address.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @buyer_address.postal_code = '1234567'
@@ -33,22 +33,22 @@ RSpec.describe BuyerAddress, type: :model do
       it 'prefectureが空では保存できないこと' do
         @buyer_address.prefecture_id = ''
         @buyer_address.valid?
-        expect(@buyer_address.errors.full_messages).to include ("Prefecture can't be blank")
+        expect(@buyer_address.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'prefectureに1を選択すると保存できないこと' do
         @buyer_address.prefecture_id = 1
         @buyer_address.valid?
-        expect(@buyer_address.errors.full_messages).to include ("Prefecture must be other than 1")
+        expect(@buyer_address.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'cityは空だと保存できないこと' do
         @buyer_address.city = ''
         @buyer_address.valid?
-        expect(@buyer_address.errors.full_messages).to include ("City can't be blank")
+        expect(@buyer_address.errors.full_messages).to include("City can't be blank")
       end
       it 'addressesは空だと保存できないこと' do
         @buyer_address.addresses = ''
         @buyer_address.valid?
-        expect(@buyer_address.errors.full_messages).to include ("Addresses can't be blank")
+        expect(@buyer_address.errors.full_messages).to include("Addresses can't be blank")
       end
       it 'tokenが空だと保存できないこと' do
         @buyer_address.token = nil
@@ -61,7 +61,7 @@ RSpec.describe BuyerAddress, type: :model do
         expect(@buyer_address.errors.full_messages).to include('Phone number is invalid')
       end
       it 'phone_numberが12文字以上では保存できないこと' do
-        @buyer_address.phone_number = 999999999999
+        @buyer_address.phone_number = 999_999_999_999
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
